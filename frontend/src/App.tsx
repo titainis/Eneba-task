@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
-import SearchPage from './pages/searchPage'
+import SearchPage from './pages/SearchPage'
 
 function App() {
 
