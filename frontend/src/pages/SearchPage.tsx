@@ -4,20 +4,21 @@ import type { CardType } from "../types/cardType";
 import SearchBar from "../components/SearchBar/SearchBar";
 
 const SearchPage = () => {
+   const API_URL = import.meta.env.VITE_API_URL;
+
   const [info, setInfo] = useState<CardType[]>([]);
   const [query, setQuery] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(async () => {
-      const response = await fetch(
-        `http://localhost:3000/list?search=${query}`
-      );
+      const response = await fetch(`${API_URL}/list?search=${query}`);
       const data = await response.json();
       setInfo(data);
-    }, 300); 
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [query]);
+
 
   return (
     <div className="flex flex-col items-center min-h-screen ">
